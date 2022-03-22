@@ -85,3 +85,54 @@ funtion createBoardGameDivs(size) {
         }
     }
 }
+
+//Creates the board elements in a 2D array of objects
+function createBoardGameArray(size) {
+    board = [];
+    for (let i = 0; i < sizeBoarding[size]; i++) {
+        board[i] = [];
+    }
+    for (let i = 0; i < sizeBoarding[size]; i++) {
+        for (let j = 0; j < sizeBoarding[size]; j++) {
+            board[i][j] = {
+                pos: `c${j}r${i}`,
+                isMine: false,
+                revealed: false,
+                surroundsMines: 0,
+                isEmpty: false,
+                hasFlag: false
+            }
+        }
+    }
+}
+
+function render(c, r) {
+    //Grabs the div of the square on the board
+    let squareEl = document.getElementById(`c${c}r${r}`);
+
+    //render the squares depending on whether or not there are bombs present or not
+    if (board[c][r].isMine) {
+        if (board[c][r].hasFlag) {
+            squareEl.removeChild(document.getElementById(`c${c}r${r}img`));
+        }
+        finishedGame = true;
+        let bombImage = document.createElement('img');
+
+        bombImage.src = 'https://i.imgur.com/rhHig5q.png';
+        bombImage.style.width = '14px';
+        bombImage.style.height = '14px';
+
+        squareEl.append(bombImage);
+    } else {
+        board[c][r].revealed = true;
+
+        squareEl.style.backgroundColor = '#F767A6';
+        //Reveals the nearby squares if the square selected is empty
+        if (board[c][r].isEmpty) {
+            revealNearbyEmpties(c, r);
+        } else {
+            //Styles the numbers and squares after they are revealed
+            styleNumbers(squareEl, c, r);
+        }
+    }
+}
