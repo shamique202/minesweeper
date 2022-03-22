@@ -5,6 +5,13 @@ const sizeBoarding = {
 }
 
 const numberMines = {
-    's': 11,
-    'l': 40,
-}
+        's': 11,
+        'l': 40,
+    }
+    // app's state variables 
+let theBoard;
+let theSeconds = 0;
+let theInterval = null;
+let theSize;
+let newGames = true;
+let finishedGame = false;
