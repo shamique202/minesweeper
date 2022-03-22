@@ -127,7 +127,7 @@ function render(c, r) {
         board[c][r].revealed = true;
 
         squareEl.style.backgroundColor = '#F767A6';
-        //Reveals the nearby squares if the square selected is empty
+        //shows other squares thats close by if the chosen square isempty
         if (board[c][r].isEmpty) {
             revealNearbyEmpties(c, r);
         } else {
