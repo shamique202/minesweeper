@@ -24,14 +24,14 @@ Minesweeper consists of a level of difficulty.
 -  The more advanced a level becomes, the more the board size increases in size and in the amount of bombs! 
 
 ## Technologies:
-> HTML 
+- HTML 
 
-> CSS 
+- CSS 
 
-> JavaScript
+- JavaScript
 
-> Command Line
+- Command Line
 
-> Github 
+- Github 
 
 
