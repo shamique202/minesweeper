@@ -1,4 +1,4 @@
-//myconstants!!!!
+//myconstants
 let sizeBoarding = {
     's': 9,
     'l': 17
@@ -9,7 +9,7 @@ let numberMines = {
     'l': 40,
 }
 
-//my app's state variables!!!
+//my app's state variables
 let theBoard;
 let theSeconds = 0;
 let theInterval = null;
@@ -17,7 +17,7 @@ let theSize;
 let newGames = true;
 let finishedGame = false;
 
-//my cached elements!!!
+//my cached elements
 let boardGameEl = document.getElementById('boardGame');
 let h3El = document.querySelector('h3');
 let minestoLeftEl = document.getElementById('minestoLeft');
@@ -26,14 +26,14 @@ let easyDifEl = document.getElementById('s');
 let hardDifEl = document.getElementById('l');
 let myButtonsEl = document.getElementById('mybuttons');
 
-//my eventlisteners!!!!
+//my eventlisteners
 boardGameEl.addEventListener('click', handleClick);
 boardGameEl.addEventListener('contextmenu', handler);
 easyDifEl.addEventListener('click', init);
 hardDifEl.addEventListener('click', init);
 document.getElementById('reset').addEventListener('click', resetBtn);
 
-//my functions below!!!
+//my functions below
 function init(e) {
     size = e.target.id;
     finishedGame = false;
@@ -86,7 +86,7 @@ funtion createBoardGameDivs(size) {
     }
 }
 
-//Creates the board elements in a 2D array of objects
+//Creates the board elements in a 2 D array consisting of objects
 function createBoardGameArray(size) {
     board = [];
     for (let i = 0; i < sizeBoarding[size]; i++) {
