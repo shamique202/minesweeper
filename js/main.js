@@ -136,3 +136,27 @@ function render(c, r) {
         }
     }
 }
+//each square is designed according to the number of mines nearby
+function styleNumbers(squareEl, c, r) {
+    squareEl.style.backgroundColor = '#F767A6';
+    squareEl.style.borderRightColor = 'white';
+    squareEl.style.borderBottomColor = 'white';
+
+    squareEl.innerText = board[c][r].surroundsMines;
+
+    if (board[c][r].surroundsMines === 1) {
+        squareEl.style.color = 'red';
+    }
+    if (board[c][r].surroundsMines === 2) {
+        squareEl.style.color = 'blue';
+    }
+    if (board[c][r].surroundsMines === 3) {
+        squareEl.style.color = 'green';
+    }
+    if (board[c][r].surroundsMines === 4) {
+        squareEl.style.color = 'purple';
+    }
+    if (board[c][r].surroundsMines === 5) {
+        squareEl.style.color = 'orange';
+    }
+}
