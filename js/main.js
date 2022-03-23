@@ -56,6 +56,8 @@ function styleboardGame(size) {
     boardGameEl.style.justifyContent = 'center';
     boardGameEl.style.margin = '31px auto';
 
+    // game board increases here ( easy or hard ) 
+
     if (size === 's') {
         boardGameEl.style.width = '245px';
         boardGameEl.style.gridTemplateColumns = 'repeat(9, 27px)';
@@ -86,7 +88,7 @@ funtion createBoardGameDivs(size) {
     }
 }
 
-//Creates the board elements in a 2 D array consisting of objects
+//creates the board elements in a 2 D array consisting of objects
 function createBoardGameArray(size) {
     board = [];
     for (let i = 0; i < sizeBoarding[size]; i++) {
@@ -173,4 +175,42 @@ function checkWinner() {
     clearInterval(interval);
     // player wins!
     h3El.innerText = 'Congratulations!';
+}
+
+function placeMines(e) {
+    //put mines anywhere on the board
+    let idOfEl = e.target.id;
+    //finds the row and column of the div from the elements id
+    const ind = (idOfEl).indexOf('r');
+    let col = parseInt((idOfEl).substring(1, ind));
+    let row = parseInt((idOfEl).substring(ind + 1, (idOfEl).length));
+    let mines1to10 = 1;
+    let r = 0;
+    let c = 0;
+    while (mines1to10 <= numberMines[size]) {
+        //finds 2 random numbers to find a random board slot
+
+        r = Math.floor(Math.random() * sizeBoarding[size]);
+        c = Math.floor(Math.random() * sizeBoarding[size]);
+
+        //puts a mine on the random spot and calls asignNumbers
+        if ((!board[c][r].isMine) && (board[col][row] !== board[c][r])) {
+            board[c][r].isMine = true;
+            asignNumbers(c, r);
+            mines1to10++;
+        }
+    }
+}
+//Finds all empty spaces on the board and marks them
+//All end cases are checked
+function findEmptySpaces() {
+    for (let i = 0; i < sizeBoarding[size]; i++) {
+        for (let j = 0; j < sizeBoarding[size]; j++) {
+            if (board[i][j].surroundsMines === 0) {
+                if (board[i][j].isMine === false) {
+                    board[i][j].isEmpty = true;
+                }
+            }
+        }
+    }
 }
