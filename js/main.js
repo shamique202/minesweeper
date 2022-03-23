@@ -188,12 +188,12 @@ function placeMines(e) {
     let r = 0;
     let c = 0;
     while (mines1to10 <= numberMines[size]) {
-        //finds 2 random numbers to find a random board slot
+        //finds 2 random numbers to place on a random board slot
 
         r = Math.floor(Math.random() * sizeBoarding[size]);
         c = Math.floor(Math.random() * sizeBoarding[size]);
 
-        //puts a mine on the random spot and calls asignNumbers
+        //puts a mine on any random spot & calls asignNumbers
         if ((!board[c][r].isMine) && (board[col][row] !== board[c][r])) {
             board[c][r].isMine = true;
             asignNumbers(c, r);
@@ -201,8 +201,7 @@ function placeMines(e) {
         }
     }
 }
-//Finds all empty spaces on the board and marks them
-//All end cases are checked
+//Finds all empty spots on the board & then marks it
 function findEmptySpaces() {
     for (let i = 0; i < sizeBoarding[size]; i++) {
         for (let j = 0; j < sizeBoarding[size]; j++) {
