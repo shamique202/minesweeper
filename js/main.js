@@ -277,9 +277,10 @@ function handleClick(e) {
         //the then timer is set!
         interval = setInterval(formatTime, 1000);
     }
-    //finds the row and column of the div from the elements id
+    //then afterwards looks for the div's rows and columns from the elementId
 
-    //Handles the click; if they click a mine, the games over. If not, the board renders;
+
+    //click handling and if the mine is clicked game is over. or else, gameboard renders 
     if ((!((board[col][row]).hasFlag)) && (!finishedGame)) {
         if (board[col][row].isMine) {
             for (let i = 0; i < sizeBoarding[size]; i++) {
@@ -287,3 +288,8 @@ function handleClick(e) {
                     render(i, j);
                 }
             }
+            //when player activates the bomb, a message appears
+            //the winner is announced!
+            clearInterval(interval);
+            h3El.innerText = 'You might want to try a little harder next time, just saying...';
+        } else {
