@@ -248,3 +248,58 @@ function revealNearbyEmpties(c, r) {
         }
     }
 }
+//the function for the handler activates when it detects a right click 
+function handler(e) {
+    e.preventDefault();
+    switch (e.button) {
+        case 0:
+            handleRghtClick(e);
+            break;
+
+        case 2:
+            handleClick(e);
+            break;
+    }
+}
+
+function handleClick(e) {
+    let idEl = e.target.id;
+    const ind = (idEl).indexOf('r');
+    let col = parseInt((idEl).substring(1, ind));
+    let row = parseInt((idEl).substring(ind + 1, (idEl).length));
+    //the board is made as soon as the first click is activated 
+    if (newGames) {
+        newGames = false;
+        //mines are made available 
+        //looks for all the empty spots afterwards
+        placeMines(e);
+        findEmptySpaces();
+        //the then timer is set!
+        interval = setInterval(formatTime, 1000);
+    }
+    //finds the row and column of the div from the elements id
+
+    //Handles the click; if they click a mine, the games over. If not, the board renders;
+    if ((!((board[col][row]).hasFlag)) && (!finishedGame)) {
+        if (board[col][row].isMine) {
+            for (let i = 0; i < sizeBoarding[size]; i++) {
+                for (let j = 0; j < sizeBoarding[size]; j++) {
+                    render(i, j);
+                }
+            }
+            //when player activates the bomb, a message appears
+            clearInterval(interval);
+            h3El.innerText = 'You might want to try a little harder next time, just saying...';
+        } else {
+            render(col, row);
+            checkWinner();
+        }
+    }
+}
+
+function handleRghtClick(e) {
+    const ind = (e.target.id).indexOf('r');
+    let col = parseInt((e.target.id).substring(1, ind));
+    let row = parseInt((e.target.id).substring(ind + 1, (e.target.id).length));
+
+    let squareEl = document.getElementById(`c${col}r${row}`);
