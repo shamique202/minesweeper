@@ -1,10 +1,10 @@
-#Minesweeper
+# Minesweeper
 
 
-##Introduction:
+## Introduction:
 Minesweeper has been a popular puzzle game played for years. This array-generated board game represents a minefield, which consists of mines that need to be uncovered by clicking hidden tiles.  
 
-###How to play Minesweeper:
+### How to play Minesweeper:
 
     - This game is controlled solely by the mouse, reacting to both left and right clicks on the mouse. 
 
@@ -18,4 +18,4 @@ Minesweeper consists of a level of difficulty.
 
     - The more advanced a level becomes, the more the board size increases in size and in the amount of bombs! 
 
-###Wireframe 
+### Wireframe:
