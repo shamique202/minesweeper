@@ -66,7 +66,7 @@ function styleboardGame(size) {
         boardGameEl.style.width = '433px';
         boardGameEl.style.gridTemplateColumns = 'repeat(16, 27px)';
         boardGameEl.style.gridTemplateRows = 'repeat(16, 27px)';
-        h3El.innerText = `...you're gonna need it`
+        h3El.innerText = `...you're definitely gonna need it`
     }
     minestoLeftEl.innerText = numberMines[size];
     timerEl.innerText = `00:00`;
