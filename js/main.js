@@ -201,13 +201,48 @@ function placeMines(e) {
         }
     }
 }
-//Finds all empty spots on the board & then marks it
+//Finds all the empty spots on the board & then marks it
 function findEmptySpaces() {
     for (let i = 0; i < sizeBoarding[size]; i++) {
         for (let j = 0; j < sizeBoarding[size]; j++) {
             if (board[i][j].surroundsMines === 0) {
                 if (board[i][j].isMine === false) {
                     board[i][j].isEmpty = true;
+                }
+            }
+        }
+    }
+}
+//matched  numbers to nearby mines 
+function asignNumbers(c, r) {
+    for (let i = -1; i <= 1; i++) {
+        for (let j = -1; j <= 1; j++) {
+            if (!(c + i < 0) && !(c + i > sizeBoarding[size] - 1)) {
+                if (!(r + j < 0) && !(r + j > sizeBoarding[size] - 1)) {
+                    board[c + i][j + r].surroundsMines++;
+                }
+            }
+        }
+    }
+}
+//shows all the empty spaces that are nearby
+function revealNearbyEmpties(c, r) {
+    var col = 0;
+    var row = 0;
+    for (let i = -1; i <= 1; i++) {
+        for (let j = -1; j <= 1; j++) {
+            col = parseInt(c) + i;
+            row = parseInt(r) + j;
+            if (!(col < 0) && !(col > sizeBoarding[size] - 1)) {
+                if (!(row < 0) && !(row > sizeBoarding[size] - 1)) {
+                    if ((col !== c) || (row !== r)) {
+                        if (board[col][row].revealed === false) {
+                            if (board[col][row].isMine === false) {
+                                render(col, row);
+
+                            }
+                        }
+                    }
                 }
             }
         }
