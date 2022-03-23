@@ -1,7 +1,9 @@
 # Minesweeper
 
 ## Wireframe:
-![Minesweeper Wireframe] (/images/minewireframe.png)
+![Minesweeper Wireframe] 
+(/images/minewireframe.png)
+
 
 ## Pseudocode:
 Minesweeper has been a popular puzzle game played for years. This array-generated board game represents a minefield, which consists of mines that need to be uncovered by clicking hidden tiles.  
@@ -21,6 +23,15 @@ Minesweeper consists of a level of difficulty.
 
 -  The more advanced a level becomes, the more the board size increases in size and in the amount of bombs! 
 
+## Technologies:
+> HTML 
 
+> CSS 
+
+> JavaScript
+
+> Command Line
+
+> Github 
 
 
