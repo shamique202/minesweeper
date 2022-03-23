@@ -107,7 +107,7 @@ function createBoardGameArray(size) {
 }
 
 function render(c, r) {
-    //Grabs the div of the square on the board
+    //grabs the square's div 
     let squareEl = document.getElementById(`c${c}r${r}`);
 
     //render the squares depending on whether or not there are bombs present or not
@@ -159,4 +159,18 @@ function styleNumbers(squareEl, c, r) {
     if (board[c][r].surroundsMines === 5) {
         squareEl.style.color = 'orange';
     }
+}
+//the player wins if the squares that don't have mines are revealed
+function checkWinner() {
+    for (let i = 0; i < sizeBoarding[size]; i++) {
+        for (let j = 0; j < sizeBoarding[size]; j++) {
+            if (!(board[i][j].isMine) && !(board[i][j].revealed)) {
+                return;
+            }
+        }
+    }
+    finishedGame = true;
+    clearInterval(interval);
+    // player wins!
+    h3El.innerText = 'Congratulations!';
 }
