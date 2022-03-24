@@ -1,5 +1,13 @@
 # Minesweeper
 
+![Main](/images/mainscreen.png)
+
+![Easy](/images/easypic.png)
+
+![Hard](/images/hardpic.png)
+
+
+
 ## Wireframe:
 ![Minesweeper](/images/minewireframe.png)
 
