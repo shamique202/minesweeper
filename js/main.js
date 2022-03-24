@@ -60,7 +60,7 @@ function styleboardGame(size) {
         boardGameEl.style.width = '245px';
         boardGameEl.style.gridTemplateColumns = 'repeat(9, 27px)';
         boardGameEl.style.gridTemplateRows = 'repeat(9, 27px)';
-        h3El.innerText = 'good job!';
+        h3El.innerText = 'you better win...';
     }
     if (size === 'l') {
         boardGameEl.style.width = '433px';
