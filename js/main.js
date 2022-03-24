@@ -26,7 +26,7 @@ let easyDifEl = document.getElementById('s');
 let hardDifEl = document.getElementById('l');
 let myButtonsEl = document.getElementById('mybuttons');
 
-//my eventlisteners
+//my event listeners
 boardGameEl.addEventListener('click', handleClick);
 boardGameEl.addEventListener('contextmenu', handler);
 easyDifEl.addEventListener('click', init);
@@ -344,4 +344,11 @@ function resetBtn() {
     minestoLeftEl.innerText = '0';
     timerEl.innerText = `00:00`;
     newGames = true;
+}
+
+function formatTime() {
+    theSeconds++;
+    const mins = Math.floor(theSeconds / 60).toString().padStart(2, '0').toString();
+    const secs = (theSeconds % 60).toString().padStart(2, '0').toString();
+    timerEl.innerText = `${mins}:${secs}`;
 }
