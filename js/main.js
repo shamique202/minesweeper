@@ -1,10 +1,10 @@
 //my constants
-let sizeBoarding = {
+const sizeBoarding = {
     's': 9,
     'l': 17
 }
 
-let numberMines = {
+const numberMines = {
     's': 11,
     'l': 40,
 }
@@ -56,8 +56,6 @@ function styleboardGame(size) {
     boardGameEl.style.justifyContent = 'center';
     boardGameEl.style.margin = '31px auto';
 
-    // game board increases here ( easy or hard ) 
-
     if (size === 's') {
         boardGameEl.style.width = '245px';
         boardGameEl.style.gridTemplateColumns = 'repeat(9, 27px)';
@@ -68,27 +66,31 @@ function styleboardGame(size) {
         boardGameEl.style.width = '433px';
         boardGameEl.style.gridTemplateColumns = 'repeat(16, 27px)';
         boardGameEl.style.gridTemplateRows = 'repeat(16, 27px)';
-        h3El.innerText = `...you're definitely gonna need it`
+        h3El.innerText = `...you're gonna need it`
     }
     minestoLeftEl.innerText = numberMines[size];
     timerEl.innerText = `00:00`;
 }
-//make board elements in the d.o.m.
+
+// game board increases here ( easy or hard )
+//make board elements in the d.o.m. 
 function createBoardGameDivs(size) {
     for (let i = 0; i < sizeBoarding[size]; i++) {
         for (let j = 0; j < sizeBoarding[size]; j++) {
             let newDiv = document.createElement('div');
             newDiv.id = `c${j}r${i}`;
-            newDiv.style.border = '1px pink';
+
+            newDiv.style.border = '1px solid';
             newDiv.style.borderTopColor = 'white';
             newDiv.style.borderLeftColor = 'white';
-            newDiv.style.fontSize = '20px';
+            newDiv.style.fontSize = '24px';
+
             boardGameEl.appendChild(newDiv);
         }
     }
 }
 
-//creates the board elements in a 2 D array consisting of objects
+//make the board elements in a 2 D array consisting of objects
 function createBoardGameArray(size) {
     board = [];
     for (let i = 0; i < sizeBoarding[size]; i++) {
@@ -108,8 +110,8 @@ function createBoardGameArray(size) {
     }
 }
 
+//it grabs the square's div 
 function render(c, r) {
-    //grabs the square's div 
     let squareEl = document.getElementById(`c${c}r${r}`);
 
     //render the squares depending on whether or not there are bombs present or not
@@ -138,6 +140,7 @@ function render(c, r) {
         }
     }
 }
+
 //each square is designed according to the number of mines nearby
 function styleNumbers(squareEl, c, r) {
     squareEl.style.backgroundColor = '#F767A6';
@@ -162,6 +165,7 @@ function styleNumbers(squareEl, c, r) {
         squareEl.style.color = 'orange';
     }
 }
+
 //the player wins if the squares that don't have mines are revealed
 function checkWinner() {
     for (let i = 0; i < sizeBoarding[size]; i++) {
@@ -174,33 +178,38 @@ function checkWinner() {
     finishedGame = true;
     clearInterval(interval);
     // player wins!
+
     h3El.innerText = 'Congratulations!';
 }
+
 
 function placeMines(e) {
     //put mines anywhere on the board
     let idOfEl = e.target.id;
-    //finds the row and column of the div from the elements id
+    //finds the row and column of the div from the elements id    
     const ind = (idOfEl).indexOf('r');
     let col = parseInt((idOfEl).substring(1, ind));
     let row = parseInt((idOfEl).substring(ind + 1, (idOfEl).length));
+
     let mines1to10 = 1;
     let r = 0;
     let c = 0;
-    while (mines1to10 <= numberMines[size]) {
-        //finds 2 random numbers to place on a random board slot
 
+    while (mines1to10 <= numberMines[size]) {
+        //finds 2 random numbers to place on a random board slot        
         r = Math.floor(Math.random() * sizeBoarding[size]);
         c = Math.floor(Math.random() * sizeBoarding[size]);
 
-        //puts a mine on any random spot & calls asignNumbers
+        //puts a mine on any random spot & calls asignNumbers       
         if ((!board[c][r].isMine) && (board[col][row] !== board[c][r])) {
             board[c][r].isMine = true;
             asignNumbers(c, r);
             mines1to10++;
         }
+
     }
 }
+
 //Finds all the empty spots on the board & then marks it
 function findEmptySpaces() {
     for (let i = 0; i < sizeBoarding[size]; i++) {
@@ -213,6 +222,7 @@ function findEmptySpaces() {
         }
     }
 }
+
 //matched  numbers to nearby mines 
 function asignNumbers(c, r) {
     for (let i = -1; i <= 1; i++) {
@@ -225,6 +235,7 @@ function asignNumbers(c, r) {
         }
     }
 }
+
 //shows all the empty spaces that are nearby
 function revealNearbyEmpties(c, r) {
     var col = 0;
@@ -248,6 +259,8 @@ function revealNearbyEmpties(c, r) {
         }
     }
 }
+
+
 //the function for the handler activates when it detects a right click 
 function handler(e) {
     e.preventDefault();
@@ -267,11 +280,12 @@ function handleClick(e) {
     const ind = (idEl).indexOf('r');
     let col = parseInt((idEl).substring(1, ind));
     let row = parseInt((idEl).substring(ind + 1, (idEl).length));
-    //the board is made as soon as the first click is activated 
+
+    //the board is made as soon as the first click is activated     
     if (newGames) {
         newGames = false;
         //mines are made available 
-        //looks for all the empty spots afterwards
+        //looks for all the empty spots afterwards        
         placeMines(e);
         findEmptySpaces();
         //the then timer is set!
@@ -330,6 +344,7 @@ function handleRghtClick(e) {
         }
     }
 }
+
 //the game gets reset by the handles
 //timer gets cleared 
 //then the gameboard gets cleared as well
@@ -346,11 +361,10 @@ function resetBtn() {
     newGames = true;
 }
 
-
 // structure the timer to show 00:00 
 function formatTime() {
     theSeconds++;
-    const mins = Math.floor(theSeconds / 60).toString().padStart(2, '0').toString();
-    const secs = (theSeconds % 60).toString().padStart(2, '0').toString();
+    const mins = Math.floor(theSeconds / 60).toString().padStart(2, '0');
+    const secs = (theSeconds % 60).toString().padStart(2, '0');
     timerEl.innerText = `${mins}:${secs}`;
 }
