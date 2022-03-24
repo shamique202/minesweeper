@@ -292,6 +292,23 @@ function handleClick(e) {
             //the winner is announced!
             clearInterval(interval);
             h3El.innerText = 'You might want to try a little harder next time, just saying...';
+        } else {
+            render(col, row);
+            checkWinner();
         }
     }
+}
+
+function handleRghtClick(e) {
+    const ind = (e.target.id).indexOf('r');
+    let col = parseInt((e.target.id).substring(1, ind));
+    let row = parseInt((e.target.id).substring(ind + 1, (e.target.id).length));
+
+    let squareEl = document.getElementById(`c${col}r${row}`);
+
+
+
+
+
+
 }
