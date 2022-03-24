@@ -306,9 +306,27 @@ function handleRghtClick(e) {
 
     let squareEl = document.getElementById(`c${col}r${row}`);
 
+    //If the square doesn't have a flag, place a flag on the board
+    //Otherwise, remove the flag that's already there
+    if ((!board[col][row].revealed) && (!finishedGame)) {
+        if (!(board[col][row].hasFlag) && (parseInt(minestoLeftEl.innerText) > 0)) {
 
+            let flagImage = document.createElement('img');
+            flagImage.src = 'https://i.imgur.com/GPcHhIA.png';
+            flagImage.style.width = '15px';
+            flagImage.style.height = '15px';
+            flagImage.id = `c${col}r${row}img`;
 
+            board[col][row].hasFlag = true;
 
+            squareEl.append(flagImage);
 
+            minestoLeftEl.innerText = `${parseInt(minestoLeftEl.innerText) - 1}`;
+        } else {
+            board[col][row].hasFlag = false
+            squareEl.removeChild(document.getElementById(`c${col}r${row}img`));
 
+            minestoLeftEl.innerText = `${parseInt(minestoLeftEl.innerText) + 1}`;
+        }
+    }
 }
