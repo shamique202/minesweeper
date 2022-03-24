@@ -6,6 +6,11 @@
 
 ![Hard](/images/hardpic.png)
 
+
+## Getting Started: 
+
+https://shamique202.github.io/minesweeper/
+
 ## Pseudocode:
 Minesweeper has been a popular puzzle game played for years. This array-generated board game represents a minefield, which consists of mines that need to be uncovered by clicking hidden tiles. 
 
