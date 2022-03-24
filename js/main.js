@@ -346,6 +346,8 @@ function resetBtn() {
     newGames = true;
 }
 
+
+// structure the timer to show 00:00 
 function formatTime() {
     theSeconds++;
     const mins = Math.floor(theSeconds / 60).toString().padStart(2, '0').toString();
