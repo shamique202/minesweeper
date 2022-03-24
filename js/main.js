@@ -330,3 +330,18 @@ function handleRghtClick(e) {
         }
     }
 }
+//the game gets reset by the handles
+//timer gets cleared 
+//then the gameboard gets cleared as well
+//now, a new game starts up again
+function resetBtn() {
+    clearInterval(interval);
+    theSeconds = 0;
+    boardGameEl.innerHTML = '';
+    boardGameEl.removeAttribute('style');
+    myButtonsEl.style.display = 'flex';
+    h3El.innerText = 'Good Luck!';
+    minestoLeftEl.innerText = '0';
+    timerEl.innerText = `00:00`;
+    newGames = true;
+}
