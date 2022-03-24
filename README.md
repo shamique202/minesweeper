@@ -35,4 +35,8 @@ Minesweeper consists of a level of difficulty.
 
 - Github 
 
-
+## Minimum Viable Product (MVP):
+-   As a user, I should be able to click any cell to reveal it
+-  As a user, I should be able to see the number of flags remaining
+-  As a user, I should see a message if I win or lose the game 
+-  As a user, I should be able to restart the game at any time 
