@@ -21,6 +21,11 @@ Minesweeper consists of a level of difficulty.
 
 - Player can restart or reset the game
 
+## Getting Started: 
+
+https://shamique202.github.io/minesweeper/
+
+
 ## Technologies:
 - HTML 
 
@@ -42,4 +47,6 @@ Minesweeper consists of a level of difficulty.
 ## Next Steps: 
 -  Allow user input for board size
 -  Allow user input for the number of bombs 
+
+
 
