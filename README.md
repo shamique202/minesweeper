@@ -40,3 +40,8 @@ Minesweeper consists of a level of difficulty.
 -  As a user, I should be able to see the number of flags remaining
 -  As a user, I should see a message if I win or lose the game 
 -  As a user, I should be able to restart the game at any time 
+
+## Next Steps: 
+-  Allow user input for board size
+-  Allow user input for the number of bombs 
+
