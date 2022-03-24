@@ -1,8 +1,7 @@
 # Minesweeper
 
 ## Wireframe:
-![Minesweeper Wireframe] 
-(/images/minewireframe.png)
+![Minesweeper](/images/minewireframe.png)
 
 
 ## Pseudocode:

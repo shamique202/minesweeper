@@ -1,4 +1,4 @@
-//myconstants
+//my constants
 let sizeBoarding = {
     's': 9,
     'l': 17
@@ -73,8 +73,8 @@ function styleboardGame(size) {
     minestoLeftEl.innerText = numberMines[size];
     timerEl.innerText = `00:00`;
 }
-//make boardelements in the d.o.m.
-funtion createBoardGameDivs(size) {
+//make board elements in the d.o.m.
+function createBoardGameDivs(size) {
     for (let i = 0; i < sizeBoarding[size]; i++) {
         for (let j = 0; j < sizeBoarding[size]; j++) {
             let newDiv = document.createElement('div');
@@ -129,7 +129,7 @@ function render(c, r) {
         board[c][r].revealed = true;
 
         squareEl.style.backgroundColor = '#F767A6';
-        //shows other squares thats close by if the chosen square isempty
+        //shows other squares thats close by if the chosen square is empty
         if (board[c][r].isEmpty) {
             revealNearbyEmpties(c, r);
         } else {
@@ -292,4 +292,6 @@ function handleClick(e) {
             //the winner is announced!
             clearInterval(interval);
             h3El.innerText = 'You might want to try a little harder next time, just saying...';
-        } else {
+        }
+    }
+}
