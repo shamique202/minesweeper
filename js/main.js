@@ -368,7 +368,3 @@ function formatTime() {
     const secs = (theSeconds % 60).toString().padStart(2, '0');
     timerEl.innerText = `${mins}:${secs}`;
 }
-
-//explosions sound
-var sound = new Audio("audio_235968__tommccann__explosion-01.wav");
-sound.play();
