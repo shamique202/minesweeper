@@ -16,6 +16,7 @@ let theInterval = null;
 let theSize;
 let newGames = true;
 let finishedGame = false;
+let interval;
 
 //my cached elements
 let boardGameEl = document.getElementById('boardGame');
