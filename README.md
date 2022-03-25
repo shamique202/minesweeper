@@ -6,6 +6,9 @@
 
 ![Hard](/images/hardpic.png)
 
+![Mine](/images/bomb.png)
+
+
 
 ## Getting Started: 
 
