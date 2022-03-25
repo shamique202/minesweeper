@@ -37,12 +37,15 @@ Minesweeper consists of a level of difficulty.
 
 - Github 
 
+- Responsive Design 
+
 ## Minimum Viable Product (MVP):
 -   As a user, I should be able to click any cell to reveal it
 -  As a user, I should be able to see the scoreboard
 - As a user, I should be able to see the timer
 -  As a user, I should see a message if I win or lose the game 
 -  As a user, I should be able to restart the game at any time 
+-  As a user, I should be able to view the game on multiple devices via Responsive Design
 
 ## Next Steps: 
 -  Allow user input for board size
