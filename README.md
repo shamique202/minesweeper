@@ -53,4 +53,5 @@ Minesweeper consists of a level of difficulty.
 ## Next Steps: 
 -  Allow user input for board size
 -  Allow user input for the number of bombs 
+-  Add sound effects to the game, such as explosion sounds or dinging sounds when you press the cells
 
